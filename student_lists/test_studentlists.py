@@ -72,7 +72,7 @@ class TestStudentLists(TestCase):
         test_class = ClassList(2)
         test_class.add_student('Anne Bolean')
         self.assertTrue(test_class.is_enrolled('Anne Bolean'))
-        seld.assertFalse(test_class.is_enrolled('Bloody Mary'))
+        self.assertFalse(test_class.is_enrolled('Bloody Mary'))
 
 
 
