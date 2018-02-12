@@ -74,15 +74,15 @@ class PhoneAssignments():
         for phone in self.phones:
             if phone.id == phone_id:
                 if (phone.is_assigned()==True):
-                    if PhoneAssignments.phone_info(self,employee) is None: #if phone is already assigned to an employee, do not change list, raise exception
+                    if PhoneAssignments.phone_info(self,employee) is not None: #if phone is already assigned to an employee, do not change list, raise exception
                         raise PhoneError('Someone else is assigned to this phone.')
-                    elif (PhoneAssignments.phone_info(self, employee) is not None) & (PhoneAssignments.phone_info(self,employee).id) != phone_id):
+                    elif (PhoneAssignments.phone_info(self, employee) is None) & (PhoneAssignments.phone_info(self,employee).id != phone_id):
                         raise PhoneError('This employee already has a phone.')
                         #if employee already has a phone, do not change list, and raise exception
                     else:
                         return
                         #if employee already has this phone, don't make any changes. This should NOT raise an exception.
-                elif (PhoneAssignments.phone_info(self, employee) is not None) & (PhoneAssignments.phone_info(self, employee) != phone_id):
+                elif (PhoneAssignments.phone_info(self, employee) is None) & (PhoneAssignments.phone_info(self, employee) != phone_id):
                     #this phone isn't assigned to someone else, but this employee already has a phone
                     raise PhoneError("This employee already has a phone assigned to them.")
                 else:
