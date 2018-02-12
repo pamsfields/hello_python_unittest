@@ -37,7 +37,7 @@ class TestStudentLists(TestCase):
         test_class = ClassList(2)
         test_class.add_student('And Another Test Student')
         test_class.remove_student('And Another Test Student')
-        self.assertNotIn('And Another Test Student')
+        self.assertNotIn('And Another Test Student', test_class.class_list)
 
     ## write a test that removes a student not in the list, and asserts a StudentError is raised
     def test_remove_student_not_in_list(self):

@@ -50,7 +50,7 @@ class ClassList:
 
     def is_class_full(self):
         '''verifies if the class is already full'''
-        if len(self.class_list) == self.max_students:
+        if len(self.class_list) <= self.max_students:
             return True
         else:
             return False
